@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control4D Project Page</title>
+<!-- Bootstrap -->
+<link href="./css/bootstrap-4.0.0.css" rel="stylesheet">
+</head>
+<body>
+<div id="page_container">
+<header>
+  <div class="jumbotron" >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="text-center">Arxiv</h5>
+          <h2 class="text-center">Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor</h1>
+          <p class="text-center">&nbsp;</p>
+          <h6 class="text-center"><a href="https://dsaurus.github.io/saurus/">Ruizhi Shao</a>, <a href="https://mrtornado24.github.io/">Jingxiang Sun</a>, Cheng Peng, <a href="https://zhengzerong.github.io/">Zerong Zheng</a>, Boyao Zhou, <a href="https://hongwenzhang.github.io/">Hongwen Zhang</a>, <a href="http://www.liuyebin.com/">Yebin Liu</a> </h6>
+          <p class="text-center">Tsinghua University </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  
+  <div class="container">
+    <h2>&nbsp;</h2>
+    <div class="row">
+      <div class="col-lg-14 col-md-14 col-sm-14 text-center offset-xl-0 col-xl-12"> <img src="assets/teaser.jpg" width="950" alt=""/>
+      <p>Fig 1.&nbsp;We propose Control4D, an approach to high-fidelity and spatiotemporal-consistent 4D portrait editing with only text instructions. Given the video frames in the middle and text instructions (around the arrows), Control4D generates realistic and 4D consistent editing results shown on the two sides.</p>
+      <p>&nbsp;</p>  
+    </div>
+  </div>
+
+  <div class="container">
+    <p>&nbsp;</p>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+        <h2>Abstract</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center  offset-xl-0 col-xl-12">
+        <p class="text-left"><em>
+          Recent years have witnessed considerable achievements in editing images with text instructions. 
+          When applying these editors to dynamic scene editing, the new-style scene tends to be temporally inconsistent due to the frame-by-frame nature of these 2D editors. To tackle this issue, we propose Control4D, a novel approach for high-fidelity and temporally consistent 4D portrait editing. 
+          Control4D is built upon an efficient 4D representation with a 2D diffusion-based editor. Instead of using direct supervisions from the editor, our method learns a 4D GAN from it and avoids the inconsistent supervision signals. Specifically, 
+          we employ a discriminator to learn the generation distribution based on the edited images and then update the generator with the discrimination signals. For more stable training, multi-level information is extracted from the edited images and used to facilitate the learning of the generator. Experimental results show that Control4D surpasses previous approaches and achieves more photo-realistic and consistent 4D editing performances.
+          </em></p>
+        <p class="text-left">&nbsp;</p>
+        <h5 class="text-center">
+          <a href="">[ArXiv]</a>
+          <a href="">[Paper]</a>
+          <a href="">[Code]</a>
+        </h5>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+        <h2>Overview </h2>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center offset-xl-1 col-xl-10"> <img src="assets/pipeline.jpg" width="800" alt=""/>
+        <p>&nbsp;</p>
+        <p class="text-center">Fig 2. Pipeline of Control4D. Our method first utilizes Tensor4D to train the implicit representation of a 4D portrait scene, which are then rendered into latent features and RGB images using voxel rendering, serving as inputs for the 4D GAN. We apply the ControlNet as a 2D editor to edit the dataset with the noisy results and conditions as inputs, 
+          leading to updated results that are used as real images while the Generator's outputs serve as fake images fed into the Discriminator for discrimination. The discriminative results are used to calculate loss, allowing for iterative updates of both the Generator and Discriminator.  </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center offset-xl-1 col-xl-10"> <img src="assets/multilevel.png" width="800" alt=""/>
+        <p>&nbsp;</p>
+        <p class="text-center">Fig 3. Illustration of the Generation with Multi-level Guidance. We propose a three-level image generation process to balance the generator training.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+        <h2>Static Scenes</h2>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12">
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_musk.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_thor.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+        <h2>Dynamic Scenes </h2>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12">
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_zzr_cap.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_zzr_iron.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_jds_hm.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
+          <source src="assets/video_jds_hq.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+        <h2>Citation</h2>
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
+      <p><span style="color:#000000;font-family:'Courier New';font-size:15px;"> Ruizhi Shao, Jingxiang Sun, Cheng Peng, Zerong Zheng, Boyao Zhou, Hongwen Zhang, Yebin Liu. "Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor".  Arxiv 2023</span></p>
+      <p>&nbsp;</p>
+      <p><span style="color:#000000;font-family:'Courier New';font-size:15px;">@misc{shao2023control4d, <br>
+        author = {Ruizhi Shao, Jingxiang Sun, Cheng Peng, Zerong Zheng, Boyao Zhou, Hongwen Zhang, Yebin Liu. },<br>
+        title = {Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor},<br>
+        publisher = {arxiv},<br>
+			year = {2023}<br>
+		}</span></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="row"> </div>
+  </div>
+</section>	
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="./js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="./js/popper.min.js"></script> 
+<script src="./js/bootstrap-4.0.0.js"></script>
+<style>
+.myimg {
+ vertical-align: top;
+}
+</style>
+</body>
+</html>
