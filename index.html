@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-12">
           <h5 class="text-center">Arxiv</h5>
-          <h2 class="text-center">Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor</h1>
+          <h2 class="text-center">Control4D: Efficient 4D Portrait Editing with Text</h1>
           <p class="text-center">&nbsp;</p>
           <h6 class="text-center"><a href="https://dsaurus.github.io/saurus/">Ruizhi Shao</a>, <a href="https://mrtornado24.github.io/">Jingxiang Sun</a>, Cheng Peng, <a href="https://zhengzerong.github.io/">Zerong Zheng</a>, Boyao Zhou, <a href="https://hongwenzhang.github.io/">Hongwen Zhang</a>, <a href="http://www.liuyebin.com/">Yebin Liu</a> </h6>
           <p class="text-center">Tsinghua University </p>
@@ -28,12 +28,28 @@
 <section>
   
   <div class="container">
-    <h2>&nbsp;</h2>
+    <h3>&nbsp;</h3>
+    
     <div class="row">
-      <div class="col-lg-14 col-md-14 col-sm-14 text-center offset-xl-0 col-xl-12"> <img src="assets/teaser.jpg" width="950" alt=""/>
-      <p>Fig 1.&nbsp;We propose Control4D, an approach to high-fidelity and spatiotemporal-consistent 4D portrait editing with only text instructions. Given the video frames in the middle and text instructions (around the arrows), Control4D generates realistic and 4D consistent editing results shown on the two sides.</p>
-      <p>&nbsp;</p>  
+      
+      <div class="col-lg-14 col-md-14 col-sm-14 text-center offset-xl-0 col-xl-12">
+        <h5>&nbsp;<em>Given only text instructions, Control4D can achieve high-fidelity and consistent 4D portrait editing.</em></h5>
+      <video width="950" height=""  muted autoplay="autoplay" loop="loop">
+        <source src="assets/teaser1.mp4" type="video/mp4">
+      </video>
+      <h5>&nbsp;<em>"Jensen Huang is roasting steak."</em></h5>
+      <hr>
+      <div class="col-lg-14 col-md-14 col-sm-14 text-center offset-xl-0 col-xl-12">
+      <video width="950" height=""  muted autoplay="autoplay" loop="loop">
+        <source src="assets/teaser2.mp4" type="video/mp4">
+      </video>
+      <h5>&nbsp;<em>"Mark Zuckerberg is pouring coffee."</em></h5>
+      <hr>
+      
     </div>
+
+     
+    
   </div>
 
   <div class="container">
@@ -49,15 +65,14 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center  offset-xl-0 col-xl-12">
         <p class="text-left"><em>
-          Recent years have witnessed considerable achievements in editing images with text instructions. 
-          When applying these editors to dynamic scene editing, the new-style scene tends to be temporally inconsistent due to the frame-by-frame nature of these 2D editors. To tackle this issue, we propose Control4D, a novel approach for high-fidelity and temporally consistent 4D portrait editing. 
-          Control4D is built upon an efficient 4D representation with a 2D diffusion-based editor. Instead of using direct supervisions from the editor, our method learns a 4D GAN from it and avoids the inconsistent supervision signals. Specifically, 
-          we employ a discriminator to learn the generation distribution based on the edited images and then update the generator with the discrimination signals. For more stable training, multi-level information is extracted from the edited images and used to facilitate the learning of the generator. Experimental results show that Control4D surpasses previous approaches and achieves more photo-realistic and consistent 4D editing performances.
+          We introduce Control4D, an innovative framework for editing dynamic 4D portraits using text instructions. Our method addresses the prevalent challenges in 4D editing, notably the inefficiencies of existing 4D representations and the inconsistent editing effect caused by diffusion-based editors. We first propose GaussianPlanes, a novel 4D representation that makes Gaussian Splatting more structured by applying plane-based decomposition in 3D space and time. This enhances both efficiency and robustness in 4D editing. Furthermore, we propose to leverage a 4D generator to learn a more continuous generation space from inconsistent edited images produced by the diffusion-based editor, which effectively improves the consistency and quality of 4D editing.
+Comprehensive evaluation demonstrates the superiority of Control4D, including significantly reduced training time, high-quality rendering, and spatial-temporal consistency in 4D portrait editing.
           </em></p>
         <p class="text-left">&nbsp;</p>
         <h5 class="text-center">
-          <a href="https://arxiv.org/abs/2305.20082">[ArXiv]</a>
-          <a href="">[Code (Coming Soon)]</a>
+          <a href="">[ArXiv (Coming soon)] </a>
+          <a href="">[Paper (Coming soon)] </a>
+          <a href="">[Code (Coming soon)]</a>
         </h5>
       </div>
     </div>
@@ -68,19 +83,16 @@
         <p>&nbsp;</p>
       </div>
     </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+      <video width="950" height=""  muted autoplay="autoplay" loop="loop">
+        <source src="assets/overview.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h3>&nbsp;</h3>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center offset-xl-1 col-xl-10"> <img src="assets/pipeline.jpg" width="800" alt=""/>
         <p>&nbsp;</p>
-        <p class="text-center">Fig 2. Pipeline of Control4D. Our method first utilizes Tensor4D to train the implicit representation of a 4D portrait scene, which are then rendered into latent features and RGB images using voxel rendering, serving as inputs for the 4D GAN. We apply the ControlNet as a 2D editor to edit the dataset with the noisy results and conditions as inputs, 
-          leading to updated results that are used as real images while the Generator's outputs serve as fake images fed into the Discriminator for discrimination. The discriminative results are used to calculate loss, allowing for iterative updates of both the Generator and Discriminator.  </p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center offset-xl-1 col-xl-10"> <img src="assets/multilevel.png" width="500" alt=""/>
-        <p>&nbsp;</p>
-        <p class="text-center">Fig 3. Illustration of the Generation with Multi-level Guidance. We propose a three-level image generation process to balance the generator training.</p>
+        <p class="text-center">Fig 2. Pipeline of Control4D. Our method first utilizes GaussianPlanes to train the implicit representation of a 4D portrait scene, which are then rendered into latent features and RGB images using Gaussian rendering, serving as inputs for the GAN-based generator. Meanwhile, we apply the 2D-diffusion-based editor to edit the dataset with the noisy results and conditions as inputs, leading to updated results that are used as real images while the Superres. Module’s outputs serve as fake images fed into the Discriminator for discrimination. The discriminative results are used to calculate loss, allowing for iterative updates of both the Generator and Discriminator.   </p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
       </div>
@@ -93,14 +105,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12">
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_musk.mp4" type="video/mp4">
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center col-xl-6">
+        <video width="" height="450"  controls  loop="loop">
+          <source src="assets/face_eins.mp4" type="video/mp4">
         </video>
+        <h5>&nbsp;<em>"Albert Einstein."</em></h5>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_thor.mp4" type="video/mp4">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center col-xl-6">
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/face_elon.mp4" type="video/mp4">
+          
         </video>
+        <h5>&nbsp;<em>"Elon Musk."</em></h5>
         <p>&nbsp;</p>
       </div>
     </div>
@@ -113,28 +130,52 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12">
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_zzr_cap.mp4" type="video/mp4">
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/emma.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_zzr_iron.mp4" type="video/mp4">
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/taylor.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_jds_hm.mp4" type="video/mp4">
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/strange.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_jds_hq.mp4" type="video/mp4">
+        <video width="" height="450"   controls loop="loop">
+          <source src="assets/elf.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_sjx_mf.mp4" type="video/mp4">
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/biden.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
-        <video width="" height="450"  muted autoplay="autoplay" loop="loop">
-          <source src="assets/video_sjx_sher.mp4" type="video/mp4">
+        <video width="" height="450"   controls loop="loop">
+          <source src="assets/trump.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/neo.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"   controls loop="loop">
+          <source src="assets/trinity.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/joker.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"   controls loop="loop">
+          <source src="assets/gordon.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"  controls loop="loop">
+          <source src="assets/ironman.mp4" type="video/mp4">
+        </video>
+        <p>&nbsp;</p>
+        <video width="" height="450"   controls loop="loop">
+          <source src="assets/jack.mp4" type="video/mp4">
         </video>
         <p>&nbsp;</p>
       </div>
@@ -146,11 +187,11 @@
       </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
-      <p><span style="color:#000000;font-family:'Courier New';font-size:15px;"> Ruizhi Shao, Jingxiang Sun, Cheng Peng, Zerong Zheng, Boyao Zhou, Hongwen Zhang, Yebin Liu. "Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor".  Arxiv 2023</span></p>
+      <p><span style="color:#000000;font-family:'Courier New';font-size:15px;"> Ruizhi Shao, Jingxiang Sun, Cheng Peng, Zerong Zheng, Boyao Zhou, Hongwen Zhang, Yebin Liu. "Control4D: Efficient 4D Portrait Editing with Text".  Arxiv 2023</span></p>
       <p>&nbsp;</p>
       <p><span style="color:#000000;font-family:'Courier New';font-size:15px;">@misc{shao2023control4d, <br>
         author = {Ruizhi Shao, Jingxiang Sun, Cheng Peng, Zerong Zheng, Boyao Zhou, Hongwen Zhang, Yebin Liu. },<br>
-        title = {Control4D: Dynamic Portrait Editing by Learning 4D GAN from 2D Diffusion-based Editor},<br>
+        title = {Control4D: Efficient 4D Portrait Editing with Text},<br>
         publisher = {arxiv},<br>
 			year = {2023}<br>
 		}</span></p>
